@@ -1,3 +1,13 @@
+root = true
+
 [*.lua]
+indent_style = space
+indent_size = 2
+
+[.js]
+indent_style = space
+indent_size = 2
+
+[.ts]
 indent_style = space
 indent_size = 2
