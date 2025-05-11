@@ -9,9 +9,14 @@ local ts_server = function()
   vim.opt.expandtab = true
   local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-  vim.opt.runtimepath:append("/home/thrashdev/.nvm/versions/node/v21.7.0/lib/node_modules/typescript-language-server")
-  vim.opt.runtimepath:append("/home/thrashdev/.nvm/versions/node/v21.2.0/lib/node_modules/typescript-language-server")
-  require("lspconfig").ts_ls.setup({ capabilities = capabilities })
+  -- vim.opt.runtimepath:append("/home/thrashdev/.nvm/versions/node/v21.7.0/lib/node_modules/typescript-language-server")
+  -- vim.opt.runtimepath:append("/home/thrashdev/.nvm/versions/node/v21.2.0/lib/node_modules/typescript-language-server")
+  require("lspconfig").ts_ls.setup({
+    capabilities = capabilities,
+    handlers = {
+      ["textDocument/publishDiagnostics"] = function(...) end,
+    },
+  })
 end
 
 return {

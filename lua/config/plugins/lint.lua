@@ -1,18 +1,18 @@
 return {
   {
-    'mfussenegger/nvim-lint',
+    "mfussenegger/nvim-lint",
     event = "VeryLazy",
     event = {
       "BufReadPre",
       "BufNewFile",
     },
     config = function()
-      local lint = require('lint');
+      local lint = require("lint")
       lint.linters_by_ft = {
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
-        javascriptreact = { 'eslint_d' },
-        typescriptreact = { 'eslint_d' },
+        javascript = { "eslint_d" },
+        typescript = { "eslint_d" },
+        javascriptreact = { "eslint_d" },
+        typescriptreact = { "eslint_d" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -20,12 +20,12 @@ return {
         group = lint_augroup,
         callback = function()
           lint.try_lint()
-        end
+        end,
       })
 
-      vim.keymap.set('n', "<leader>fl", function()
+      vim.keymap.set("n", "<leader>fl", function()
         lint.try_lint()
       end, { desc = "Trigger linting for current file" })
-    end
-  }
+    end,
+  },
 }

@@ -24,6 +24,7 @@ vim.opt.cursorline = true
 
 -- vim.cmd [[hi @string guifg=pink]]
 
+local quickfix = require("config.custom.quickfix")
 -- vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
@@ -35,7 +36,8 @@ vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>q", quickfix.local_diagnostics, { desc = "Open diagnostic [Q]uickfix list" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking text",
@@ -46,5 +48,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 require("config.lazy")
-require("config.custom.quickfix").setup()
+-- require("config.custom.quickfix").setup()
 require("config.git.push").setup()
