@@ -1,10 +1,10 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.opt.clipboard = "unnamedplus"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 4
 vim.opt.autochdir = true
 vim.opt.undofile = true
@@ -17,12 +17,10 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 vim.opt.cursorline = true
-
-
 
 -- vim.cmd [[hi @string guifg=pink]]
 
@@ -37,16 +35,16 @@ vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
-require('config.lazy')
-require 'config.custom.quickfix'.setup()
-require "config.git.push".setup()
+require("config.lazy")
+require("config.custom.quickfix").setup()
+require("config.git.push").setup()
