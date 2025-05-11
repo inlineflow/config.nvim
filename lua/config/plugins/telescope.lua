@@ -29,6 +29,7 @@ return {
     vim.keymap.set("n", "<space>fh", builtin.help_tags)
     vim.keymap.set("n", "<space>fd", builtin.find_files)
     vim.keymap.set("n", "<leader><leader>", builtin.buffers)
+    vim.keymap.set('n', "<leader>gd", builtin.diagnostics)
     vim.keymap.set("n", "<space>en", function()
       require('telescope.builtin').find_files {
         cwd = vim.fn.stdpath("config")

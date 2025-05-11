@@ -12,5 +12,13 @@ return {
         ensure_installed = { 'eslint' }
       }
     end
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    config = function()
+      require('mason-tool-installer').setup {
+        ensure_installed = { 'eslint_d' }
+      }
+    end
   }
 }
